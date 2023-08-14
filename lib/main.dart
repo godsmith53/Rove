@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rove/pages/home_page.dart';
+import 'package:rove/pages/top_bar.dart';
 // import 'package:rove/utils/colors.dart';
 
 void main() {
@@ -12,6 +12,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        debugShowCheckedModeBanner: false, home: HomePage());
+        debugShowCheckedModeBanner: false, home: HomePages());
   }
 }
