@@ -184,10 +184,59 @@ class Settings extends StatelessWidget {
                   myMainTextColor: AppColors.primaryColor),
               trailing: IconButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LoginPage()),
-                  );
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          backgroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                            side: BorderSide(
+                                width: 2.0,
+                                color: Colors.black), // Border color and weight
+                          ),
+                          title: Text(
+                            "Are you sure?",
+                            style: TextStyle(
+                              color:
+                                  AppColors.primaryColor, // Text color #292929
+                            ),
+                          ),
+                          actions: <Widget>[
+                            TextButton(
+                              child: Text(
+                                "Cancel",
+                                style: TextStyle(
+                                  color: AppColors
+                                      .primaryColor, // Text color #292929
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                            TextButton(
+                              child: Text(
+                                "Logout",
+                                style: TextStyle(
+                                  color: AppColors
+                                      .primaryColor, // Text color #292929
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.pop(context);
+
+                                // Navigate to LoginPage
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginPage()),
+                                );
+                              },
+                            ),
+                          ],
+                        );
+                      });
                 },
                 icon: Icon(Icons.logout),
                 color: AppColors.primaryColor,

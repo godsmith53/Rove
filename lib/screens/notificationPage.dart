@@ -15,10 +15,7 @@ class NotificationPage extends StatelessWidget {
             child: CustomAppBar(
               myUserImage: "assets/images/priyanshu.jpg",
               onNotificationTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => NotificationPage()));
+                ;
               },
               onMenuTap: () {
                 Navigator.push(context,

@@ -17,10 +17,7 @@ class MenuPage extends StatelessWidget {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => NotificationPage()));
             },
-            onMenuTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => MenuPage()));
-            },
+            onMenuTap: () {},
           ),
         ),
         body: SingleChildScrollView(
