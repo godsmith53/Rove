@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'ROVE',
-      home: BoardingPage1(),
+      home: AuthPage(),
       debugShowCheckedModeBanner: false,
     );
   }

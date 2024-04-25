@@ -1,1 +1,35 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"rove-28209","appId":"1:1057954899261:android:d480089d7f24acc50d9154","fileOutput":"android/app/google-services.json"}},"ios":{"default":{"projectId":"rove-28209","appId":"1:1057954899261:ios:beb27a4d8a102cba0d9154","uploadDebugSymbols":false,"fileOutput":"ios/Runner/GoogleService-Info.plist"}},"dart":{"lib/firebase_options.dart":{"projectId":"rove-28209","configurations":{"android":"1:1057954899261:android:d480089d7f24acc50d9154","ios":"1:1057954899261:ios:beb27a4d8a102cba0d9154","web":"1:1057954899261:web:023b98013c4df9f40d9154"}}}}}}
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "rove-28209",
+          "appId": "1:1057954899261:android:d480089d7f24acc50d9154",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "rove-28209",
+          "appId": "1:1057954899261:ios:beb27a4d8a102cba0d9154",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "rove-28209",
+          "configurations": {
+            "android": "1:1057954899261:android:d480089d7f24acc50d9154",
+            "ios": "1:1057954899261:ios:beb27a4d8a102cba0d9154",
+            "web": "1:1057954899261:web:023b98013c4df9f40d9154"
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}

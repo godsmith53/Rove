@@ -13,11 +13,15 @@ class LoginPage extends StatelessWidget {
   final passwordController = TextEditingController();
 
   //sign user in method
-  void signInUser() async {
+  void signInUser(BuildContext context) async {
     try {
       print("logged in Myfunction");
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailController.text, password: passwordController.text);
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomeScreen()),
+      );
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         //wrong email
@@ -84,7 +88,7 @@ class LoginPage extends StatelessWidget {
                       height: 20,
                     ),
                     MyButton(
-                        onTap: signInUser,
+                        onTap: () => signInUser(context),
                         myButtonColor: AppColors.primaryColor,
                         myButtonText: "Log In",
                         myButtonTextColor: Colors.white),

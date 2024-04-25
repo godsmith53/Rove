@@ -14,7 +14,7 @@ class CustomAppBar extends StatelessWidget {
     super.key,
     required this.myUserImage,
     // required this.onNotificationTap,
-    required this.onMenuTap,
+    required this.onMenuTap, 
   });
 
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rove/customs/customAppBar.dart';
-import 'package:rove/customs/privacy%20policy.dart';
+import 'package:rove/customs/privacypolicy.dart';
 import 'package:rove/screens/notificationPage.dart';
 import 'package:rove/screens/menuPage.dart';
 import 'package:rove/utils/colors.dart';

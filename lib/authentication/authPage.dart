@@ -12,20 +12,28 @@ class AuthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: StreamBuilder<User?>(
-        stream: FirebaseAuth.instance
-            .authStateChanges(), //continuously listening the state changes
-        builder: (context, snapshot) {
-          //user logged in
+        body: StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.active) {
           if (snapshot.hasData) {
-            return HomeScreen();
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => HomeScreen()),
+              );
+            });
+          } else {
+            WidgetsBinding.instance!.addPostFrameCallback((_) {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => BoardingPage1()),
+              );
+            });
           }
-          //not logged in
-          else {
-            return BoardingPage1(); //
-          }
-        },
-      ),
-    );
+        }
+        return CircularProgressIndicator(); // Show a loading spinner while waiting for the auth state to change
+      },
+    ));
   }
 }
