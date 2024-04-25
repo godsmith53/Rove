@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:rove/customs/button.dart';
 import 'package:rove/customs/textField.dart';
@@ -5,6 +6,31 @@ import 'package:rove/screens/homeScreen.dart';
 import 'package:rove/utils/colors.dart';
 
 class LoginPage extends StatelessWidget {
+  LoginPage({super.key});
+
+  //text editing controllers
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  //sign user in method
+  void signInUser() async {
+    try {
+      print("logged in Myfunction");
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text, password: passwordController.text);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        //wrong email
+        //wrongEmailPopup();
+        print('No user found');
+      } else if (e.code == 'wrong-password') {
+        //wrong password
+        //wrongPasswordPopup();
+        print('wrong password');
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -42,6 +68,7 @@ class LoginPage extends StatelessWidget {
                       image: AssetImage("assets/images/login.png"),
                     ),
                     MyTextField(
+                        myController: emailController,
                         myIcon: Icon(Icons.person),
                         myLabelText: "E-Mail",
                         myObscureText: false),
@@ -49,6 +76,7 @@ class LoginPage extends StatelessWidget {
                       height: 20,
                     ),
                     MyTextField(
+                        myController: passwordController,
                         myIcon: Icon(Icons.password),
                         myLabelText: "Password",
                         myObscureText: true),
@@ -56,11 +84,7 @@ class LoginPage extends StatelessWidget {
                       height: 20,
                     ),
                     MyButton(
-                        onTap: () {Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => HomeScreen()),
-                          );},
+                        onTap: signInUser,
                         myButtonColor: AppColors.primaryColor,
                         myButtonText: "Log In",
                         myButtonTextColor: Colors.white),
@@ -68,7 +92,12 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                  );
+                },
                 style: TextButton.styleFrom(
                   // padding: EdgeInsets.fromLTRB(130, 0, 0, 0),
                   shape: RoundedRectangleBorder(),

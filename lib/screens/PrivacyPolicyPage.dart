@@ -7,6 +7,8 @@ import 'package:rove/utils/colors.dart';
 import 'package:rove/utils/textTheme.dart';
 
 class PrivacyPolicyPage extends StatelessWidget {
+const PrivacyPolicyPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,10 +18,10 @@ class PrivacyPolicyPage extends StatelessWidget {
           preferredSize: Size.fromHeight(120),
           child: CustomAppBar(
             myUserImage: "assets/images/priyanshu.jpg",
-            onNotificationTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => NotificationPage()));
-            },
+            // onNotificationTap: () {
+            //   Navigator.push(context,
+            //       MaterialPageRoute(builder: (context) => NotificationPage()));
+            // },
             onMenuTap: () {
               Navigator.push(
                   context, MaterialPageRoute(builder: (context) => MenuPage()));

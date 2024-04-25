@@ -16,7 +16,7 @@ class MyTextSpace extends StatelessWidget {
       myMainText,
       textAlign: TextAlign.center,
       style: TextStyle(
-          color: myMainTextColor, fontSize: 17, fontWeight: FontWeight.w600),
+          color: myMainTextColor, fontSize: 16, fontWeight: FontWeight.w600),
     );
   }
 }

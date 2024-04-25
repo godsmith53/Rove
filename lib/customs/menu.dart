@@ -1,9 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:rove/screens/PrivacyPolicyPage.dart';
 import 'package:rove/screens/aboutUsPage.dart';
 import 'package:rove/screens/contactUsPage.dart';
 import 'package:rove/screens/eBusPassPage.dart';
-import 'package:rove/screens/loginPage.dart';
 import 'package:rove/utils/colors.dart';
 import 'package:rove/utils/textTheme.dart';
 
@@ -30,6 +30,10 @@ class Settings extends StatelessWidget {
   // required this.myUserEmergencyContact,
   // required this.myUserAddress,
   // });
+
+  void signOutUser() {
+    FirebaseAuth.instance.signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -183,61 +187,7 @@ class Settings extends StatelessWidget {
                   myMainText: "Logout",
                   myMainTextColor: AppColors.primaryColor),
               trailing: IconButton(
-                onPressed: () {
-                  showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          backgroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                            side: BorderSide(
-                                width: 2.0,
-                                color: Colors.black), // Border color and weight
-                          ),
-                          title: Text(
-                            "Are you sure?",
-                            style: TextStyle(
-                              color:
-                                  AppColors.primaryColor, // Text color #292929
-                            ),
-                          ),
-                          actions: <Widget>[
-                            TextButton(
-                              child: Text(
-                                "Cancel",
-                                style: TextStyle(
-                                  color: AppColors
-                                      .primaryColor, // Text color #292929
-                                ),
-                              ),
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                            ),
-                            TextButton(
-                              child: Text(
-                                "Logout",
-                                style: TextStyle(
-                                  color: AppColors
-                                      .primaryColor, // Text color #292929
-                                ),
-                              ),
-                              onPressed: () {
-                                Navigator.pop(context);
-
-                                // Navigate to LoginPage
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => LoginPage()),
-                                );
-                              },
-                            ),
-                          ],
-                        );
-                      });
-                },
+                onPressed: signOutUser,
                 icon: Icon(Icons.logout),
                 color: AppColors.primaryColor,
               ),

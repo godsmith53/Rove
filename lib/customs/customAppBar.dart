@@ -1,16 +1,19 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:rove/screens/loginPage.dart';
+import 'package:rove/screens/notificationPage.dart';
 import 'package:rove/screens/profilePage.dart';
 import 'package:rove/utils/colors.dart';
 
 class CustomAppBar extends StatelessWidget {
   final String myUserImage;
-  final Function()? onNotificationTap;
+  // final Function()? onNotificationTap;
   final Function()? onMenuTap;
 
   const CustomAppBar({
     super.key,
     required this.myUserImage,
-    required this.onNotificationTap,
+    // required this.onNotificationTap,
     required this.onMenuTap,
   });
 
@@ -50,7 +53,14 @@ class CustomAppBar extends StatelessWidget {
       ),
       actions: [
         IconButton(
-          onPressed: onNotificationTap,
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => NotificationPage(),
+              ),
+            );
+          },
           icon: Icon(Icons.notifications),
           color: Colors.white,
         ),
@@ -60,46 +70,3 @@ class CustomAppBar extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-//       appBar: AppBar(
-//         leadingWidth: 100,
-//         leading: IconButton(
-//           onPressed: () {},
-//           icon: CircleAvatar(
-//             radius: 35,
-//             backgroundImage: AssetImage(myUserImage),
-//           ),
-//         ),
-//         backgroundColor: AppColors.primaryColor,
-//         toolbarHeight: 100,
-//         centerTitle: false,
-//         title: Text(
-//           "Hey There 👋🏻",
-//           style: TextStyle(
-//               color: Colors.white, fontSize: 18, fontWeight: FontWeight.w600),
-//         ),
-//         actions: [
-//           IconButton(
-//             onPressed: () {},
-//             icon: Icon(Icons.credit_card_outlined),
-//             color: Colors.white,
-//           ),
-//           IconButton(
-//               onPressed: () {},
-//               icon: Icon(Icons.settings),
-//               color: Colors.white),
-//         ],
-//       ),
-//     );
-//   }
-// }

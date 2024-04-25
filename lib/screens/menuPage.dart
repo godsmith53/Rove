@@ -4,6 +4,8 @@ import 'package:rove/customs/menu.dart';
 import 'package:rove/screens/notificationPage.dart';
 
 class MenuPage extends StatelessWidget {
+const MenuPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,10 +15,10 @@ class MenuPage extends StatelessWidget {
           preferredSize: Size.fromHeight(120),
           child: CustomAppBar(
             myUserImage: "assets/images/priyanshu.jpg",
-            onNotificationTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => NotificationPage()));
-            },
+            // onNotificationTap: () {
+            //   Navigator.push(context,
+            //       MaterialPageRoute(builder: (context) => NotificationPage()));
+            // },
             onMenuTap: () {},
           ),
         ),

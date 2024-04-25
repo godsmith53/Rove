@@ -4,6 +4,8 @@ import 'package:rove/screens/loginPage.dart';
 import 'package:rove/utils/colors.dart';
 
 class BoardingPage3 extends StatelessWidget {
+const BoardingPage3({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

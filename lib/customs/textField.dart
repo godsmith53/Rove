@@ -4,9 +4,11 @@ class MyTextField extends StatelessWidget {
   final Icon myIcon;
   final String myLabelText;
   final bool myObscureText;
+  final myController ;
 
   const MyTextField({
     super.key,
+    required this.myController,
     required this.myIcon,
     required this.myLabelText,
     required this.myObscureText,
@@ -17,6 +19,7 @@ class MyTextField extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       child: TextFormField(
+        controller: myController,
         obscureText: myObscureText,
         decoration: InputDecoration(
           labelText: myLabelText,

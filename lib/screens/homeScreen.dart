@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:rove/customs/customAppBar.dart';
 import 'package:rove/customs/todaysRide.dart';
@@ -7,6 +8,11 @@ import 'package:rove/utils/colors.dart';
 import 'package:rove/utils/textTheme.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  void signUserOut() {
+    FirebaseAuth.instance.signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +23,11 @@ class HomeScreen extends StatelessWidget {
           preferredSize: Size.fromHeight(120),
           child: CustomAppBar(
             myUserImage: "assets/images/priyanshu.jpg",
-            onNotificationTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => NotificationPage()));
-            },
+            // onNotificationTap:
+            // () {
+            //   Navigator.push(context,
+            //       MaterialPageRoute(builder: (context) => NotificationPage()));
+            // },
             onMenuTap: () {
               Navigator.push(
                   context, MaterialPageRoute(builder: (context) => MenuPage()));

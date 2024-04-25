@@ -4,6 +4,8 @@ import 'package:rove/customs/profilePhoto.dart';
 import 'package:rove/utils/colors.dart';
 
 class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
